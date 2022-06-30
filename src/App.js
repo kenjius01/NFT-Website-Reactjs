@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import Footer from './components/footer/Footer';
 import GlobalStyles from './styles/GlobalStyles';
-import {  light } from './styles/Themes.js';
+import {  dark, light } from './styles/Themes.js';
 import Navigation from './components/navigation/Navigation'
 import Home from './components/sections/Home';
 import About from './components/sections/About';

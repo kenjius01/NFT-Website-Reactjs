@@ -6,6 +6,7 @@ const Btn = styled.button`
     background-color: ${(prop) => prop.theme.text};
     color: ${(prop) => prop.theme.body};
     outline: none;
+    text-transform: capitalize;
     border: none;
     font-size: ${(prop) => prop.theme.fontsm};
     padding: 0.9rem 2.3rem;

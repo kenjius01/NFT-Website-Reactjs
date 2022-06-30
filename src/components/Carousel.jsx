@@ -18,8 +18,14 @@ import img7 from '../assets/Nfts/bighead-7.svg';
 import img8 from '../assets/Nfts/bighead-8.svg';
 import img9 from '../assets/Nfts/bighead-9.svg';
 import img10 from '../assets/Nfts/bighead-10.svg';
+import img11 from '../assets/Nfts/bighead-11.svg';
+import img12 from '../assets/Nfts/bighead-12.svg';
+import img13 from '../assets/Nfts/bighead-13.svg';
+import img14 from '../assets/Nfts/bighead-14.svg';
+import img15 from '../assets/Nfts/bighead-15.svg';
+import img16 from '../assets/Nfts/bighead-16.svg';
 
-import Arrow from '../assets/Arrow.svg'
+import Arrow from '../assets/Arrow.svg';
 
 const Container = styled.div`
     width: 25vw;
@@ -36,7 +42,7 @@ const Container = styled.div`
     }
 
     .swiper-button-next {
-        color:  ${(prop) => prop.theme.text};
+        color: ${(prop) => prop.theme.text};
         right: 0;
         top: 60%;
         width: 4rem;
@@ -48,7 +54,7 @@ const Container = styled.div`
         }
     }
     .swiper-button-prev {
-        color:  ${(prop) => prop.theme.text};
+        color: ${(prop) => prop.theme.text};
         left: 0;
         top: 60%;
         width: 4rem;
@@ -66,17 +72,17 @@ const Carousel = () => {
     return (
         <Container>
             <Swiper
-            navigation
-            scrollbar={{
-                draggable: true
-            }}
-            autoplay={{
-                delay:2000,
-                disableOnInteraction: false,
-            }}
-            pagination={{
-                type:'fraction'
-            }}
+                navigation
+                scrollbar={{
+                    draggable: true,
+                }}
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    type: 'fraction',
+                }}
                 effect='cards'
                 grabCursor
                 modules={[EffectCards, Pagination, Autoplay, Navigation]}
@@ -115,6 +121,24 @@ const Carousel = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <img src={img10} alt='img-nfts' />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={img11} alt='img-nfts' />
+                </SwiperSlide>
+                <SwiperSlide>
+                    <img src={img12} alt='img-nfts' />
+                </SwiperSlide>{' '}
+                <SwiperSlide>
+                    <img src={img13} alt='img-nfts' />
+                </SwiperSlide>{' '}
+                <SwiperSlide>
+                    <img src={img14} alt='img-nfts' />
+                </SwiperSlide>{' '}
+                <SwiperSlide>
+                    <img src={img15} alt='img-nfts' />
+                </SwiperSlide>{' '}
+                <SwiperSlide>
+                    <img src={img16} alt='img-nfts' />
                 </SwiperSlide>
             </Swiper>
         </Container>
