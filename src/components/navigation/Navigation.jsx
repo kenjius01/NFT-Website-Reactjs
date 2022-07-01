@@ -4,6 +4,7 @@ import Button from '../Button';
 import Logo from '../Logo';
 import Sun from '@iconscout/react-unicons/icons/uil-sun';
 import Moon from '@iconscout/react-unicons/icons/uil-moon';
+import { useState } from 'react';
 
 const Section = styled.section`
     width: 100vw;
@@ -18,6 +19,19 @@ const Navbar = styled.nav`
     width: 85%;
     height: ${(prop) => prop.theme.navHeight};
     margin: 0 auto;
+
+    .mobile {
+        display: none;
+    }
+
+    @media (max-width: 64em) {
+        .desktop {
+            display: none;
+        }
+        .mobile {
+            display: flex;
+        }
+    }
 `;
 
 const Menu = styled.ul`
@@ -25,11 +39,40 @@ const Menu = styled.ul`
     justify-content: center;
     align-items: center;
     list-style: none;
+
+    @media (max-width: 64em) {
+        /* 1024px */
+
+        top: ${(prop) => prop.theme.navHeight};
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: ${(prop) => `calc(100vh - ${prop.theme.navHeight})`};
+        z-index: 40;
+        background-color: ${(prop) => `rgba(${prop.theme.bodyRgba}, 0.8)`};
+        position: fixed;
+        backdrop-filter: blur(2px);
+
+        transform: ${(prop) =>
+            prop.click ? 'translateY(0)' : 'translateY(1000%)'};
+        transition: all 0.3s ease;
+        flex-direction: column;
+        justify-content: center;
+
+        touch-action: none;
+    }
 `;
 const MenuItem = styled.li`
     margin: 0 1rem;
     color: ${(prop) => prop.theme.text};
     cursor: pointer;
+
+    @media (max-width: 64em) {
+        /* 1024px */
+        margin: 1rem 0;
+    }
+
     &::after {
         content: '';
         display: block;
@@ -66,18 +109,64 @@ const Switch = styled.div`
     border-radius: 100%;
     background: ${(prop) => prop.theme.text};
     position: absolute;
+    transition: all 0.3s linear;
+`;
+
+const OtherMenu = styled.span`
+    width: ${(prop) => (prop.click ? '2rem' : '1.5rem')};
+    height: 2px;
+    background-color: ${(prop) => prop.theme.text};
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: ${(prop) =>
+        prop.click
+            ? 'translateX(-50%) rotate(90deg)'
+            : 'translateX(-50%) rotate(0deg)'};
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s linear;
+
+    @media (max-width: 64em) {
+        /* 1024px */
+        display: flex;
+    }
+
+    &::after,
+    &::before {
+        content: ' ';
+        width: ${(prop) => (prop.click ? '1rem' : '1.5rem')};
+        height: 2px;
+        right: ${(prop) => (prop.click ? '-2px' : '0')};
+        background-color: ${(prop) => prop.theme.text};
+        position: absolute;
+    }
+
+    &::after {
+        top: ${(prop) => (prop.click ? '0.3rem' : '0.5rem')};
+        transform: ${(prop) =>
+            prop.click ? 'rotate(-40deg)' : 'rotate(0deg)'};
+    }
+    &::before {
+        bottom: ${(prop) => (prop.click ? '0.3rem' : '0.5rem')};
+        transform: ${(prop) => (prop.click ? 'rotate(40deg)' : 'rotate(0deg)')};
+    }
 `;
 
 const Navigation = ({ setDarkMode, darkMode }) => {
+    const [click, setClick] = useState(false);
     const scrollTo = (id) => {
         let element = document.getElementById(id);
         element.scrollIntoView({
             behavior: 'smooth',
         });
+        setClick(false);
     };
 
     return (
-        <Section>
+        <Section id='nav'>
             <Navbar>
                 <Logo />
                 <Toggle onClick={() => setDarkMode(!darkMode)}>
@@ -88,15 +177,18 @@ const Navigation = ({ setDarkMode, darkMode }) => {
                         style={
                             darkMode
                                 ? {
-                                      left: '2.3rem',
+                                      transform: 'translateX(2.2rem)',
                                   }
                                 : {
-                                      right: '2.3rem',
+                                      right: 'translateX(-2.2rem)',
                                   }
                         }
                     />
                 </Toggle>
-                <Menu>
+                <OtherMenu click={click} onClick={() => setClick(!click)}>
+                    &nbsp;
+                </OtherMenu>
+                <Menu click={click}>
                     <MenuItem onClick={() => scrollTo('home')}>Home</MenuItem>
                     <MenuItem onClick={() => scrollTo('about')}>About</MenuItem>
                     <MenuItem onClick={() => scrollTo('roadmap')}>
@@ -107,12 +199,23 @@ const Navigation = ({ setDarkMode, darkMode }) => {
                     </MenuItem>
                     <MenuItem onClick={() => scrollTo('team')}>Team</MenuItem>
                     <MenuItem onClick={() => scrollTo('faq')}>Faq</MenuItem>
+                    <MenuItem>
+                        <div className='mobile'>
+                            <Button
+                                text={'Connect Wallet'}
+                                link='https://google.com'
+                                target={'_blank'}
+                            />
+                        </div>
+                    </MenuItem>
                 </Menu>
-                <Button
-                    text={'Connect Wallet'}
-                    link='https://google.com'
-                    target={'_blank'}
-                />
+                <div className='desktop'>
+                    <Button
+                        text={'Connect Wallet'}
+                        link='https://google.com'
+                        target={'_blank'}
+                    />
+                </div>
             </Navbar>
         </Section>
     );

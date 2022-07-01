@@ -28,6 +28,16 @@ const Title = styled.h2`
     .text4 {
         color: red;
     }
+
+    @media (max-width: 70em) {
+        font-size: ${(prop) => prop.theme.fontxl};
+
+    }
+
+    @media (max-width: 48em) {
+        align-self: center;
+        text-align: center;
+    }
 `;
 
 const Subtitle = styled.h3`
@@ -38,12 +48,24 @@ const Subtitle = styled.h3`
     margin-bottom: 1rem;
     width: 80%;
     align-self: flex-start;
+
+    @media (max-width: 48em) {
+        font-size: ${(prop) => prop.theme.fontmd};
+        align-self: center;
+        text-align: center;
+    }
 `;
 
 const ButtonContainer = styled.div`
-  width: 80%;
-  align-self: flex-start;
-`
+    width: 80%;
+    align-self: flex-start;
+
+    @media (max-width: 48em) {
+        font-size: ${(prop) => prop.theme.fontmd};
+        align-self: center;
+        text-align: center;
+    }
+`;
 
 const TypeWriterText = () => {
     return (

@@ -11,6 +11,7 @@ import Team from './components/sections/Team';
 
 import Faq from './components/sections/Faq';
 import { useState } from 'react';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
     const [darkMode, setDarkMode] = useState(false);
@@ -27,6 +28,7 @@ function App() {
                 <Team />
                 <Faq />
                 <Footer />
+                <ScrollToTop/>
             </ThemeProvider>
         </div>
     );

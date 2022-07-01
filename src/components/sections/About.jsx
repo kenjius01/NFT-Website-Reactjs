@@ -12,6 +12,7 @@ const Section = styled.section`
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow: hidden;
 `;
 
 const Container = styled.div`
@@ -21,6 +22,22 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 70em) {
+        width: 85%;
+    }
+
+    
+    @media (max-width: 64em) {
+        width: 100%;
+        flex-direction: column;
+        & > *:last-child {
+            width: 80%;
+        }
+        & > *:first-child {
+            margin-top: 2rem;
+        }
+    }
 `;
 const Box = styled.div`
     width: 50%;
@@ -29,6 +46,10 @@ const Box = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 64em) {
+        min-height: 50vh;
+    }
 `;
 
 const Title = styled.h2`
@@ -37,6 +58,20 @@ const Title = styled.h2`
     width: 80%;
     color: ${(prop) => prop.theme.body};
     margin: 0 auto;
+
+    @media (max-width: 64em) {
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (max-width: 48em) {
+    font-size: ${(prop) => prop.theme.fontxl};
+        
+    }
+    @media (max-width: 30em) {
+    font-size: ${(prop) => prop.theme.fontlg};
+        
+    }
 `;
 const SubText = styled.h3`
     font-size: ${(prop) => prop.theme.fontlg};
@@ -44,6 +79,20 @@ const SubText = styled.h3`
     font-weight: 400;
     width: 80%;
     margin: 1rem auto;
+
+    @media (max-width: 64em) {
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (max-width: 48em) {
+    font-size: ${(prop) => prop.theme.fontmd};
+        
+    }
+    @media (max-width: 30em) {
+    font-size: ${(prop) => prop.theme.fontsm};
+        
+    }
 `;
 const SubTextLight = styled.h4`
     font-size: ${(prop) => prop.theme.fontmd};
@@ -51,12 +100,31 @@ const SubTextLight = styled.h4`
     width: 80%;
     font-weight: 300;
     margin: 1rem auto;
+
+    @media (max-width: 64em) {
+        width: 100%;
+        text-align: center;
+    }
+
+    @media (max-width: 48em) {
+    font-size: ${(prop) => prop.theme.fontsm};
+        
+    }
+    @media (max-width: 30em) {
+    font-size: ${(prop) => prop.theme.fontxs};
+        
+    }
 `;
 
 const ButtonContainer = styled.div`
     width: 80%;
     align-self: flex-start;
     margin: 1rem auto;
+
+    @media (max-width: 64em) {
+        width: 100%;
+        text-align: center;
+    }
 `;
 
 const About = () => {
@@ -68,7 +136,7 @@ const About = () => {
                     <Carousel />
                 </Box>
                 <Box>
-                    <Title>Welcome To The Weirdos Club.</Title>
+                    <Title>Welcome To The <br /> Weirdos Club.</Title>
                     <SubText>
                         The WEIRDOS CLUB is a private collection of NFTs—unique
                         digital collectibles. The Weirdos are stored as ERC-721

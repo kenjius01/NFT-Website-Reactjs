@@ -19,6 +19,9 @@ const VectorContainer = styled.div`
         width: 100%;
         height: 100%;
     }
+    @media (max-width: 48em) {
+        left: 2rem;
+    }
 `;
 
 const Bounce = keyframes`
@@ -35,6 +38,10 @@ const Ball = styled.div`
     height: 1.5rem;
     border-radius: 100%;
     background-color: ${(prop) => prop.theme.text};
+
+    @media (max-width: 48em) {
+        left: 2rem;
+    }
 
     animation: ${Bounce} 0.5s linear infinite alternate;
 `;

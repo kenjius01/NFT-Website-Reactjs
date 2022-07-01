@@ -8,7 +8,9 @@ const VideoContainer = styled.div`
     img {
         width: 100%;
         height: auto;
-        border-radius: 12px;
+    }
+    @media (max-width: 64em) {
+        min-width: 40vh;
     }
 `;
 

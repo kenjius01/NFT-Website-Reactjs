@@ -21,6 +21,11 @@ const Section = styled.section`
     align-items: center;
 
     overflow: hidden;
+
+    @media (max-width: 48em) {
+        height: 15rem;
+        flex-direction: column;
+    }
 `;
 
 const ImgContainer = styled.div`
@@ -37,6 +42,10 @@ const ImgContainer = styled.div`
         width: 15rem;
         height: auto;
     }
+    @media (max-width: 48em) {
+        height: auto;
+        width: 10rem;
+    }
 `;
 
 const Title = styled.h1`
@@ -46,6 +55,16 @@ const Title = styled.h1`
     z-index: 10;
     width: 35%;
     text-transform: capitalize;
+
+    @media (max-width: 64em) {
+        font-size: ${(prop) => prop.theme.fontxxl};
+        text-align: center;
+    }
+    @media (max-width: 48em) {
+        font-size: ${(prop) => prop.theme.fontxl};
+        padding: 2rem 0px;
+        width: 100%;
+    }
 `;
 
 const JoinNow = styled.button`
@@ -62,6 +81,11 @@ const JoinNow = styled.button`
     position: relative;
     cursor: pointer;
     transition: all 0.3s ease;
+
+    @media (max-width: 48em) {
+        font-size: ${(prop) => prop.theme.fontmd};
+        padding: 1rem 2rem;
+    }
 
     &:hover {
         transform: scale(0.9);

@@ -30,6 +30,27 @@ import Arrow from '../assets/Arrow.svg';
 const Container = styled.div`
     width: 25vw;
     height: 70vh;
+
+    @media (max-width: 70em) {
+        height: 60vh;
+        width: 30vw;
+    }
+
+    @media (max-width: 64em) {
+        height: 50vh;
+        width: 30vw;
+    }
+
+    @media (max-width: 48em) {
+        height: 40vh;
+        width: 40vw;
+    }
+
+    @media (max-width: 30em) {
+        height: 40vh;
+        width: 50vw;
+    }
+
     .swiper {
         width: 100%;
         height: 100%;
@@ -39,6 +60,7 @@ const Container = styled.div`
         border-radius: 24px;
         display: flex;
         align-items: center;
+        justify-content: center;
     }
 
     .swiper-button-next {
@@ -52,6 +74,14 @@ const Container = styled.div`
         &::after {
             display: none;
         }
+        @media (max-width: 64em) {
+            width: 3rem;
+            /* right: 1rem; */
+        }
+
+        @media (max-width: 48em) {
+            width: 2rem;
+        }
     }
     .swiper-button-prev {
         color: ${(prop) => prop.theme.text};
@@ -64,6 +94,14 @@ const Container = styled.div`
         background-size: cover;
         &::after {
             display: none;
+        }
+
+        @media (max-width: 64em) {
+            width: 3rem;
+        }
+
+        @media (max-width: 48em) {
+            width: 2rem;
         }
     }
 `;

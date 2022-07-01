@@ -11,7 +11,7 @@ export function Minus(props) {
         <defs>
           <style>{'.cls-1{fill-rule:evenodd}'}</style>
         </defs>
-        <path className="cls-1" d="M.5 8.5v-1h15v1z" />
+        <path  stroke={props.stroke} className="cls-1" d="M.5 8.5v-1h15v1z" />
       </svg>
     );
   }

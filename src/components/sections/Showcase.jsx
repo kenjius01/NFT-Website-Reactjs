@@ -25,11 +25,19 @@ const Section = styled.section`
     align-items: center;
     position: relative;
 
-    &>*:first-child{
-      animation-duration: 20s;
+    & > *:first-child {
+        animation-duration: 20s;
+
+        @media (max-width: 30em) {
+            animation-duration: 15s;
+        }
     }
-    &>*:last-child{
-      animation-duration: 14s;
+    & > *:last-child {
+        animation-duration: 14s;
+
+        @media (max-width: 30em) {
+            animation-duration: 8s;
+        }
     }
 `;
 
@@ -40,8 +48,8 @@ const move = keyframes`
 
 const Row = styled.div`
     /* background-color: lightblue;s */
-    white-space: nowrap;
-    box-sizing: content-box;
+    /* white-space: nowrap;
+    box-sizing: content-box; */
     margin: 2rem 0;
     display: flex;
     animation: ${move} linear infinite ${(prop) => prop.direction};
@@ -52,6 +60,14 @@ const ImgContainer = styled.div`
     background-color: ${(prop) => prop.theme.body};
     border-radius: 20px;
     cursor: pointer;
+
+    @media (max-width: 48em) {
+        width: 12rem;
+    }
+
+    @media (max-width: 30em) {
+        width: 10rem;
+    }
 
     img {
         width: 100%;
@@ -77,9 +93,13 @@ const Details = styled.div`
         line-height: 1.5rem;
     }
     h1 {
-        font-size: ${(prop) => prop.theme.fontsm};
+        font-size: ${(prop) => prop.theme.fontmd};
         color: ${(prop) => prop.theme.body};
         font-weight: 600;
+
+        @media (max-width: 30em) {
+            font-size: ${(prop) => prop.theme.fontsm};
+        }
     }
 `;
 

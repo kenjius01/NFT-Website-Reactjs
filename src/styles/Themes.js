@@ -20,6 +20,8 @@ export const light = {
 
     navHeight: '5rem',
     mode:'light',
+    bodyMode:'orange',
+    colorMode: 'white'
 };
 
 export const dark = {
@@ -42,5 +44,7 @@ export const dark = {
 
     navHeight: '5rem',
     mode:'dark',
+    bodyMode:'lightblue',
+    colorMode: 'black'
 
 };

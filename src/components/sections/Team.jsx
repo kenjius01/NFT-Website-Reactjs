@@ -35,6 +35,14 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
+    @media (max-width: 64em) {
+        width: 80%;
+    }
+
+    @media (max-width: 48em) {
+        width: 90%;
+    }
 `;
 
 const Item = styled.div`
@@ -106,18 +114,46 @@ const MemberComponent = ({ img, name = 'none', position = 'none' }) => {
 const Team = () => {
     return (
         <Section id='team'>
-          <Confetti/>
+            <Confetti />
             <Title>team</Title>
             <Container>
-                <MemberComponent img={img16} name='MEGNUM' position='co-founder' />
-                <MemberComponent img={img15} name='asuka tery' position='Social Media Manager' />
+                <MemberComponent
+                    img={img16}
+                    name='MEGNUM'
+                    position='co-founder'
+                />
+                <MemberComponent
+                    img={img15}
+                    name='asuka tery'
+                    position='Social Media Manager'
+                />
                 <MemberComponent img={img14} name='KT' position='Founder' />
                 <MemberComponent img={img9} name='Layla' position='Manager' />
-                <MemberComponent img={img3} name='CYBER PUNK' position='blockchain specialist' />
-                <MemberComponent img={img5} name='Kelvin' position='graphic designer' />
-                <MemberComponent img={img10} name='Kelvin' position='web3 Ddveloper' />
-                <MemberComponent img={img7} name='DEATHSTROKE' position='director' />
-                <MemberComponent img={img1} name='Fiber Shake' position='artist' />
+                <MemberComponent
+                    img={img3}
+                    name='CYBER PUNK'
+                    position='blockchain specialist'
+                />
+                <MemberComponent
+                    img={img5}
+                    name='Kelvin'
+                    position='graphic designer'
+                />
+                <MemberComponent
+                    img={img10}
+                    name='Kelvin'
+                    position='web3 Ddveloper'
+                />
+                <MemberComponent
+                    img={img7}
+                    name='DEATHSTROKE'
+                    position='director'
+                />
+                <MemberComponent
+                    img={img1}
+                    name='Fiber Shake'
+                    position='artist'
+                />
             </Container>
         </Section>
     );

@@ -5,7 +5,6 @@ import TypeWriterText from '../TypeWriterText';
 import RoundTextBlack from '../../assets/Rounded-Text-Black.png';
 import RoundTextWhite from '../../assets/Rounded-Text-White.png';
 
-
 const Section = styled.section`
     min-height: ${(prop) => `calc(100vh - ${prop.theme.navHeight})`};
     width: 100vw;
@@ -21,6 +20,18 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 64em) {
+        width: 85%;
+    }
+    @media (max-width: 48em) {
+        flex-direction: column-reverse;
+        width: 100%;
+        & > *:first-child {
+            width: 100%;
+            margin-top: 2rem;
+        }
+    }
 `;
 const Box = styled.div`
     width: 50%;
@@ -40,7 +51,7 @@ const rotate = keyframes`
 const Round = styled.div`
     position: absolute;
     bottom: 2rem;
-    right: 90%;
+    left: 2rem;
     width: 6rem;
     height: 6rem;
     border: 1px solid ${(prop) => prop.theme.text};
@@ -51,6 +62,10 @@ const Round = styled.div`
         width: 100%;
         height: auto;
         animation: ${rotate} 6s linear infinite reverse;
+    }
+    @media (max-width: 48em) {
+        width: 4rem;
+        height: 4rem;
     }
 `;
 
@@ -64,9 +79,15 @@ const Circle = styled.span`
     background-color: ${(prop) => prop.theme.text};
     color: ${(prop) => prop.theme.body};
     position: absolute;
-    top: 25%;
-    left: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 1.6rem;
+
+    @media (max-width: 48em) {
+        width: 2rem;
+        height: 2rem;
+    }
 `;
 
 const Home = () => {
