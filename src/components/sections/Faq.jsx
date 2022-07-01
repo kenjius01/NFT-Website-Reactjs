@@ -3,7 +3,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import React from 'react';
 import { useLayoutEffect } from 'react';
 import { useRef } from 'react';
-import styled from 'styled-components';
+import styled, {  } from 'styled-components';
 import Accordion from '../Accordion';
 
 const Section = styled.section`
@@ -54,13 +54,13 @@ const Faq = () => {
             scrub: true,
         });
 
-        return () => {
-            ScrollTrigger.kill();
-        };
+        // return () => {
+        //     ScrollTrigger.kill();
+        // };
     });
 
     return (
-        <Section ref={ref}>
+        <Section id='faq' ref={ref}>
             <Title>faq</Title>
             <Container>
                 <Box>

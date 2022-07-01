@@ -1,8 +1,10 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, useTheme } from 'styled-components';
 import CoverGif from '../CoverGif';
 import TypeWriterText from '../TypeWriterText';
 import RoundTextBlack from '../../assets/Rounded-Text-Black.png';
+import RoundTextWhite from '../../assets/Rounded-Text-White.png';
+
 
 const Section = styled.section`
     min-height: ${(prop) => `calc(100vh - ${prop.theme.navHeight})`};
@@ -41,7 +43,7 @@ const Round = styled.div`
     right: 90%;
     width: 6rem;
     height: 6rem;
-    border: 1px solid ${prop => prop.theme.text};
+    border: 1px solid ${(prop) => prop.theme.text};
     border-radius: 100%;
     /* cursor: pointer; */
 
@@ -68,8 +70,9 @@ const Circle = styled.span`
 `;
 
 const Home = () => {
+    const mode = useTheme().mode;
     return (
-        <Section>
+        <Section id='home'>
             <Container>
                 <Box>
                     <TypeWriterText />
@@ -79,7 +82,11 @@ const Home = () => {
                 </Box>
                 <Round>
                     <Circle>&#x2193;</Circle>
-                    <img src={RoundTextBlack} alt='NFT' />
+                    {mode === 'light' ? (
+                        <img src={RoundTextBlack} alt='NFT' />
+                    ) : (
+                        <img src={RoundTextWhite} alt='NFT' />
+                    )}
                 </Round>
             </Container>
         </Section>

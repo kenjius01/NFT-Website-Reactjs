@@ -19,6 +19,7 @@ export const light = {
     fontButton: '0.875em',
 
     navHeight: '5rem',
+    mode:'light',
 };
 
 export const dark = {
@@ -40,4 +41,6 @@ export const dark = {
     fontButton: '0.875em',
 
     navHeight: '5rem',
+    mode:'dark',
+
 };

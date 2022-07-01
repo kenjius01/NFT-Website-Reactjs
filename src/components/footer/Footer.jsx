@@ -91,8 +91,14 @@ const Bottom = styled.div`
 `;
 
 const Footer = () => {
+    const scrollTo = (id) => {
+        let element = document.getElementById(id);
+        element.scrollIntoView({
+            behavior: 'smooth',
+        });
+    };
     return (
-        <Section>
+        <Section id='footer'>
             <Banner />
             <Container>
                 <Left>
@@ -129,23 +135,28 @@ const Footer = () => {
                     </IconList>
                 </Left>
                 <MenuItems>
-                    <Item>Home</Item>
-                    <Item>About</Item>
-                    <Item>Roadmap</Item>
+                    <Item onClick={() => scrollTo('home')}>Home</Item>
+                    <Item onClick={() => scrollTo('about')}>About</Item>
+                    <Item onClick={() => scrollTo('roadmap')}>Roadmap</Item>
 
-                    <Item>Showcase</Item>
-                    <Item>Team</Item>
-                    <Item>Faq</Item>
+                    <Item onClick={() => scrollTo('showcase')}>Showcase</Item>
+                    <Item onClick={() => scrollTo('team')}>Team</Item>
+                    <Item onClick={() => scrollTo('faq')}>Faq</Item>
                 </MenuItems>
             </Container>
             <Bottom>
                 <span>
                     &copy; {new Date().getFullYear()} created. All rights
-                    reversed.
+                    reserved.
                 </span>
                 <span>
                     Made with &#10084; by{' '}
-                    <strong style={{ fontFamily: 'Akaya Telivigala', fontSize:'20px' }}>
+                    <strong
+                        style={{
+                            fontFamily: 'Akaya Telivigala',
+                            fontSize: '20px',
+                        }}
+                    >
                         KT
                     </strong>
                 </span>

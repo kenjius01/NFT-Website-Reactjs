@@ -105,7 +105,7 @@ const MemberComponent = ({ img, name = 'none', position = 'none' }) => {
 
 const Team = () => {
     return (
-        <Section>
+        <Section id='team'>
           <Confetti/>
             <Title>team</Title>
             <Container>

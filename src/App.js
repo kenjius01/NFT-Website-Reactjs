@@ -1,8 +1,8 @@
 import { ThemeProvider } from 'styled-components';
 import Footer from './components/footer/Footer';
 import GlobalStyles from './styles/GlobalStyles';
-import {  light } from './styles/Themes.js';
-import Navigation from './components/navigation/Navigation'
+import { dark, light } from './styles/Themes.js';
+import Navigation from './components/navigation/Navigation';
 import Home from './components/sections/Home';
 import About from './components/sections/About';
 import Roadmap from './components/sections/Roadmap';
@@ -10,13 +10,16 @@ import Showcase from './components/sections/Showcase';
 import Team from './components/sections/Team';
 
 import Faq from './components/sections/Faq';
+import { useState } from 'react';
 
 function App() {
+    const [darkMode, setDarkMode] = useState(false);
+    
     return (
         <div className='App'>
             <GlobalStyles />
-            <ThemeProvider theme={light}>
-                <Navigation/>
+            <ThemeProvider theme={darkMode ? dark : light}>
+                <Navigation darkMode={darkMode} setDarkMode={setDarkMode}/>
                 <Home />
                 <About />
                 <Roadmap />

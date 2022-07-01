@@ -39,7 +39,7 @@ const Indicator = styled.span`
     svg {
         width: 1rem;
         height: auto;
-        fill: ${(prop) => prop.theme.carouselColor};
+        fill: ${(prop) => prop.theme.body};
     }
 `;
 

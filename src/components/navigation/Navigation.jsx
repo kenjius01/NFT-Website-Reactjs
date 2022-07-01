@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
 import Logo from '../Logo';
+import Sun from '@iconscout/react-unicons/icons/uil-sun';
+import Moon from '@iconscout/react-unicons/icons/uil-moon';
 
 const Section = styled.section`
     width: 100vw;
@@ -43,18 +45,68 @@ const MenuItem = styled.li`
     }
 `;
 
-const Navigation = () => {
+const Toggle = styled.div`
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid ${(prop) => prop.theme.text};
+    border-radius: 1.5rem;
+    position: relative;
+    padding: 3px;
+    cursor: pointer;
+    gap: 0.5rem;
+
+    & > * {
+        color: ${(prop) => prop.theme.text};
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+`;
+
+const Switch = styled.div`
+    border-radius: 100%;
+    background: ${(prop) => prop.theme.text};
+    position: absolute;
+`;
+
+const Navigation = ({ setDarkMode, darkMode }) => {
+    const scrollTo = (id) => {
+        let element = document.getElementById(id);
+        element.scrollIntoView({
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <Section>
             <Navbar>
                 <Logo />
+                <Toggle onClick={() => setDarkMode(!darkMode)}>
+                    <Sun />
+                    <Moon />
+
+                    <Switch
+                        style={
+                            darkMode
+                                ? {
+                                      left: '2.3rem',
+                                  }
+                                : {
+                                      right: '2.3rem',
+                                  }
+                        }
+                    />
+                </Toggle>
                 <Menu>
-                    <MenuItem>Home</MenuItem>
-                    <MenuItem>About</MenuItem>
-                    <MenuItem>Roadmap</MenuItem>
-                    <MenuItem>Showcase</MenuItem>
-                    <MenuItem>Team</MenuItem>
-                    <MenuItem>Faq</MenuItem>
+                    <MenuItem onClick={() => scrollTo('home')}>Home</MenuItem>
+                    <MenuItem onClick={() => scrollTo('about')}>About</MenuItem>
+                    <MenuItem onClick={() => scrollTo('roadmap')}>
+                        Roadmap
+                    </MenuItem>
+                    <MenuItem onClick={() => scrollTo('showcase')}>
+                        Showcase
+                    </MenuItem>
+                    <MenuItem onClick={() => scrollTo('team')}>Team</MenuItem>
+                    <MenuItem onClick={() => scrollTo('faq')}>Faq</MenuItem>
                 </Menu>
                 <Button
                     text={'Connect Wallet'}

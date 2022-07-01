@@ -3,7 +3,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import React from 'react';
 import { useLayoutEffect } from 'react';
 import { useRef } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, useTheme } from 'styled-components';
 import Vector from '../Icons/Vector';
 
 const VectorContainer = styled.div`
@@ -77,11 +77,13 @@ const DrawSvg = () => {
         };
     }, []);
 
+    const mode = useTheme().mode;
+
     return (
         <>
             <Ball ref={ballRef} />
             <VectorContainer ref={ref}>
-                <Vector stroke={'black'}/>
+                <Vector stroke={mode === 'light' ? 'black' : 'white'} />
             </VectorContainer>
         </>
     );

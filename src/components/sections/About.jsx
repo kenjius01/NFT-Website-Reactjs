@@ -1,6 +1,6 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-import { dark } from '../../styles/Themes';
+import styled, { ThemeProvider, useTheme } from 'styled-components';
+import { dark, light } from '../../styles/Themes';
 import Button from '../Button';
 import Carousel from '../Carousel';
 
@@ -54,12 +54,13 @@ const SubTextLight = styled.h4`
 `;
 
 const ButtonContainer = styled.div`
-   width: 80%;
-   align-self: flex-start;
-   margin: 1rem auto;
+    width: 80%;
+    align-self: flex-start;
+    margin: 1rem auto;
 `;
 
 const About = () => {
+    const mode = useTheme().mode;
     return (
         <Section id='about'>
             <Container>
@@ -80,10 +81,15 @@ const About = () => {
                         community with multiple benefits and utilities.
                     </SubTextLight>
                     <ButtonContainer>
-                      <ThemeProvider theme={dark}>
-                        <Button text={'Join our discord'} link='#' />
-
-                      </ThemeProvider>
+                        {mode === 'light' ? (
+                            <ThemeProvider theme={dark}>
+                                <Button text={'Join our discord'} link='#' />
+                            </ThemeProvider>
+                        ) : (
+                            <ThemeProvider theme={light}>
+                                <Button text={'Join our discord'} link='#' />
+                            </ThemeProvider>
+                        )}
                     </ButtonContainer>
                 </Box>
             </Container>

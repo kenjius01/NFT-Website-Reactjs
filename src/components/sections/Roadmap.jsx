@@ -148,7 +148,7 @@ const Roadmap = () => {
         });
     }, []);
     return (
-        <Section>
+        <Section id='roadmap'>
             <Title>Roadmap</Title>
             <Container>
                 <SvgContainer>
